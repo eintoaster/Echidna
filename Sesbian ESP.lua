@@ -1,6 +1,6 @@
 assert(Drawing, 'exploit not supported')
 
-if not syn and not PROTOSMASHER_LOADED then print'Sesbian ESP  supports Xeno and almost all Executers 
+if not syn and not PROTOSMASHER_LOADED then print'Sesbian ESP only officially supports Synapse and Protosmasher! If you\'re an exploit developer and have added drawing API to your exploit, try setting syn as true then checking if that works, otherwise, DM me on discord @ cppbook.org#1968 or add an issue to the Sesbian ESP Github Repository and I\'ll see it through email!' end
 
 if not cloneref then cloneref = function(o) return o end end
 
@@ -19,7 +19,7 @@ local WorldToViewport = function(...) return WTVP(Camera, ...) end
 local Menu = {}
 local MouseHeld = false
 local LastRefresh = 0
-local OptionsFile = 'cola_ESP_SETTINGS.dat'
+local OptionsFile = 'IC3_ESP_SETTINGS.dat'
 local Binding = false
 local BindedKey = nil
 local OIndex = 0
@@ -866,7 +866,7 @@ function LineBox:Create(Properties)
 		Visible			= true;
 	}, Properties);
 
-	if shared.am_cola then -- sory just my preference, dynamic boxes will be optional in Sesbian ESP v2
+	if shared.am_ic3 then -- sory just my preference, dynamic boxes will be optional in Sesbian ESP v2
 		Box['OutlineSquare']= NewDrawing'Square'(Properties);
 		Box['Square'] 		= NewDrawing'Square'(Properties);
 	elseif QUAD_SUPPORTED_EXPLOIT then
@@ -881,7 +881,7 @@ function LineBox:Create(Properties)
 	function Box:Update(CF, Size, Color, Properties, Parts)
 		if not CF or not Size then return end
 
-		if shared.am_cola and typeof(Parts) == 'table' then
+		if shared.am_ic3 and typeof(Parts) == 'table' then
 			local AllCorners = {};
 			
 			for i, v in pairs(Parts) do
@@ -1019,7 +1019,7 @@ function LineBox:Create(Properties)
 		end
 	end
 	function Box:SetVisible(bool)
-		if shared.am_cola then
+		if shared.am_ic3 then
 			Box['Square'].Visible = bool;
 			Box['OutlineSquare'].Visible = bool;
 		elseif self.Quad then
@@ -1034,7 +1034,7 @@ function LineBox:Create(Properties)
 	function Box:Remove()
 		self:SetVisible(false)
 
-		if shared.am_cola then
+		if shared.am_ic3 then
 			Box['Square']:Remove()
 			Box['OutlineSquare']:Remove()
 		elseif self.Quad then
@@ -1970,7 +1970,7 @@ shared.UESP_InputEndedCon = UserInputService.InputEnded:Connect(function(input)
 			Options.MenuOpen();
 		elseif input.KeyCode == Options.ToggleKey.Value then
 			Options.Enabled();
-		elseif input.KeyCode.Name == 'F1' and UserInputService:IsMouseButtonPressed(1) and shared.am_cola then -- hehe hiden spectate feature cuz why not
+		elseif input.KeyCode.Name == 'F1' and UserInputService:IsMouseButtonPressed(1) and shared.am_ic3 then -- hehe hiden spectate feature cuz why not
 			local HD, LPlayer, LCharacter = 0.95;
 
 			for i, Player in pairs(Players:GetPlayers()) do
@@ -2237,7 +2237,7 @@ local function UpdatePlayerData()
 							NameTag.Outline		= Options.TextOutline.Value;
 							NameTag.Position	= V2New(ScreenPositionUpper.X, ScreenPositionUpper.Y);
 							NameTag.Color		= Color;
-							if Drawing.Fonts and shared.am_cola then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
+							if Drawing.Fonts and shared.am_ic3 then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
 								NameTag.Font	= Drawing.Fonts.Monospace;
 							end
 						else
@@ -2249,7 +2249,7 @@ local function UpdatePlayerData()
 							DistanceTag.Size		= Options.TextSize.Value - 1;
 							DistanceTag.Outline		= Options.TextOutline.Value;
 							DistanceTag.Color		= Color3.new(1, 1, 1);
-							if Drawing.Fonts and shared.am_cola then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
+							if Drawing.Fonts and shared.am_ic3 then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
 								NameTag.Font	= Drawing.Fonts.Monospace;
 							end
 
@@ -2381,7 +2381,7 @@ local function UpdatePlayerData()
 							NameTag.Color		= Color;
 							NameTag.OutlineColor= Color3.new(0.05, 0.05, 0.05);
 							NameTag.Transparency= 0.85;
-							if Drawing.Fonts and shared.am_cola then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
+							if Drawing.Fonts and shared.am_ic3 then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
 								NameTag.Font	= Drawing.Fonts.Monospace;
 							end
 						else
@@ -2393,7 +2393,7 @@ local function UpdatePlayerData()
 							DistanceTag.Outline		= Options.TextOutline.Value;
 							DistanceTag.Color		= Color3.new(1, 1, 1);
 							DistanceTag.Transparency= 0.85;
-							if Drawing.Fonts and shared.am_cola then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
+							if Drawing.Fonts and shared.am_ic3 then -- CURRENTLY SYNAPSE ONLY :MEGAHOLY:
 								NameTag.Font	= Drawing.Fonts.Monospace;
 							end
 
@@ -2440,7 +2440,7 @@ local function UpdatePlayerData()
 								Character:FindFirstChild'Left Arm' or Character:FindFirstChild'LeftLowerArm';
 								Character:FindFirstChild'Right Arm' or Character:FindFirstChild'RightLowerArm';
 							}
-							Box:Update(HumanoidRootPart.CFrame, V3New(2, 3, 1) * (Scale * 2), Color, nil, shared.am_cola and Body);
+							Box:Update(HumanoidRootPart.CFrame, V3New(2, 3, 1) * (Scale * 2), Color, nil, shared.am_ic3 and Body);
 						else
 							Box:SetVisible(false);
 						end
