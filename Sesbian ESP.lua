@@ -1,6 +1,6 @@
 assert(Drawing, 'exploit not supported')
 
-if not syn and not PROTOSMASHER_LOADED then print'Unnamed ESP only officially supports Synapse and Protosmasher! If you\'re an exploit developer and have added drawing API to your exploit, try setting syn as true then checking if that works, otherwise, DM me on discord @ cppbook.org#1968 or add an issue to the Unnamed ESP Github Repository and I\'ll see it through email!' end
+if not syn and not PROTOSMASHER_LOADED then print'Sesbian ESP  supports Xeno and almost all Executers 
 
 if not cloneref then cloneref = function(o) return o end end
 
@@ -866,7 +866,7 @@ function LineBox:Create(Properties)
 		Visible			= true;
 	}, Properties);
 
-	if shared.am_cola then -- sory just my preference, dynamic boxes will be optional in unnamed esp v2
+	if shared.am_cola then -- sory just my preference, dynamic boxes will be optional in Sesbian ESP v2
 		Box['OutlineSquare']= NewDrawing'Square'(Properties);
 		Box['Square'] 		= NewDrawing'Square'(Properties);
 	elseif QUAD_SUPPORTED_EXPLOIT then
@@ -1131,8 +1131,8 @@ local function SetImage(Drawing, Url)
 	if not IsSynapse then repeat wait() until Drawing.Loaded; end
 end
 
--- oh god unnamed esp needs an entire rewrite, someone make a better one pls im too lazy
--- btw the color picker was made seperately so it doesnt fit with the code of unnamed esp
+-- oh god Sesbian ESP needs an entire rewrite, someone make a better one pls im too lazy
+-- btw the color picker was made seperately so it doesnt fit with the code of Sesbian ESP
 
 local function CreateDrawingsTable()
     local Drawings = { __Objects = {} };
@@ -1596,7 +1596,7 @@ function CreateMenu(NewPosition) -- Create Menu
 	Menu:AddMenuInstance('TopBarText', 'Text', {
 		Size 		= 25;
 		Position	= shared.MenuDrawingData.Instances.TopBarTwo.Position + V2New(25, 10);
-		Text		= 'Unnamed ESP';
+		Text		= 'Sesbian ESP';
 		Color		= Colors.Secondary.Light;
 		Visible		= true;
 		Transparency= 1; -- proto outline fix
@@ -2013,7 +2013,7 @@ shared.UESP_InputEndedCon = UserInputService.InputEnded:Connect(function(input)
 	end
 end)
 
-local function CameraCon() -- unnamed esp v1 sucks
+local function CameraCon() -- Sesbian ESP v1 sucks
 	workspace.CurrentCamera:GetPropertyChangedSignal'ViewportSize':Connect(function()
 		TracerPosition = V2New(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y - 135);
 	end);
